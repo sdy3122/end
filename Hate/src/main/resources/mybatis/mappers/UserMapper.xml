@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTO Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="kr.co.mybatis.mappers.UserMapper">
+	<select id="selectUserById" resultType="UserVo">
+		select * from users_tb
+		where userId=#{userId}
+	</select>
+
+	<select id="selectUserList" resultType="UserVo"
+		parameterType="UserVo">
+		select * from users_tb order by userId
+	</select>
+
+	<insert id="insertUser" parameterType="UserVo">
+		insert into users_tb(userName, registNumber, userId, userPw)
+		values(#{userName},#{registNumber},#{userId},#{userPw})
+		<selectKey keyProperty="userNo" order="AFTER" resultType="long">
+			select LAST_INSERT_ID()
+		</selectKey>
+	</insert>
+
+	<update id="updateUser" parameterType="UserVo">
+		update users_tb set
+		userPw
+		= #{userPw}
+		where registNumber = #{registNumber}
+	</update>
+
+	<delete id="deleteUser" parameterType="UserVo">
+		delete from users_tb where
+		userId = #{userId}
+	</delete>
+	
+	<select id="findIdByNameRn" resultType="String">
+		select userId from users_tb
+		where userName=#{userName} and registNumber = #{registNumber}
+	</select>
+	
+	<select id="findPwByNameRn" resultType="String">
+		select userPw from users_tb
+		where userName=#{userName} and registNumber = #{registNumber} and userId=#{userId}
+	</select>
+	
+</mapper>
