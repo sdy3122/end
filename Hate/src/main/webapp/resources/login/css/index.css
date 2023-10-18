@@ -1677,7 +1677,7 @@ body.is-preload #header .content .inner {
 		opacity 0.325s ease-in-out;
 	width: 100%;
 	max-width: 100%;
-	margin-bottom: 2rem;
+	margin : 2rem 0;
 	text-align: center;
 }
 

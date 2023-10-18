@@ -37,7 +37,10 @@
 #main>.post>ul>li {
 	padding-left: 1em;
 	text-align: center;
+	height: 23px;
 }
+
+
 
 #main>.post>ul:last-child {
 	list-style: none;

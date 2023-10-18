@@ -44,4 +44,7 @@ public interface SulMapper {
 	ArrayList<SulVo> selectFreeLikeBtnDesc();
 	int countFree();
 	List<SulVo> selectFreeLimit(Criteria cri);
+	
+	
+	ArrayList<String> selectDistinctSojuList();
 }

@@ -1,11 +1,12 @@
 package kr.co.controller;
 
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -246,16 +247,17 @@ public class UserController {
 		return countDupRn;
 	}
 	
-//	@ResponseBody
-//	@PostMapping("/sojuFood")
-//	public List<SojuVo> sojuFood(HttpServletRequest req) {
-//		System.out.println("소주 안주 찾으러 옴");
-//		List<SojuVo> menuList = sojuMapper.selectDistinctSojuList();
-//		for (int i = 0; i < menuList.size(); i++) {
-//			System.out.println(menuList.get(i));
-//		}
-//		return menuList;
-//	}
+	@ResponseBody
+	@PostMapping("/sojuFood")
+	public List<String> sojuFood(HttpServletRequest req, @RequestParam String sibal) {
+		System.out.println("소주 안주 찾으러 옴");
+		System.out.println(sibal);
+		List<String> menuList = sulMapper.selectDistinctSojuList();
+		for (int i = 0; i < menuList.size(); i++) {
+			System.out.println(menuList.get(i));
+		}
+		return menuList;
+	}
 //	
 //	@ResponseBody
 //	@PostMapping("/beerFood")

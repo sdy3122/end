@@ -30,11 +30,12 @@
 					<li id="titleLi"><a href="/">메인화면</a></li>
 					<li><a href="/boardPage">게시판</a>
 						<ul>
-							<li><a href="#">소주게시판</a></li>
-							<li><a href="#">맥주게시판</a></li>
-							<li><a href="#">와인게시판</a></li>
-							<li><a href="#">보드카게시판</a></li>
-							<li><a href="#">위스키게시판</a></li>
+							<li><a href="sojuBoardPage">소주게시판</a></li>
+							<li><a href="beerBoardPage">맥주게시판</a></li>
+							<li><a href="wineBoardPage">와인게시판</a></li>
+							<li><a href="vodkaBoardPage">보드카게시판</a></li>
+							<li><a href="whiskeyBoardPage">위스키게시판</a></li>
+							<li><a href="freeBoardPage">자유게시판</a></li>
 						</ul></li>
 					<li class="current"><a href="myInfoPage">${sessionScope.sessionVo.userName}님</a></li>
 				</ul>

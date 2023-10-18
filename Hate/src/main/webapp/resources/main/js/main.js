@@ -372,6 +372,10 @@ function checkRn(){
 // 랜덤메뉴 생성
 // 소주 ajax통해 전체 안주 받기
 function sojuAjax() {
+
+	let seo = $('#sojuSub').val();
+	console.log(seo);
+	
 	// 소주니까 soju~
 	var sojuFoodList = [];
 	$.ajax({
@@ -379,6 +383,9 @@ function sojuAjax() {
 		url : "sojuFood",
 		type : "post",
 		async : false,
+		data : {
+			sibal : seo
+		},
 		dataType : 'json',
 		success : function(result) {
 			if (result !== null) {

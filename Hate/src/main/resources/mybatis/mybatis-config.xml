@@ -4,5 +4,6 @@
 	<typeAliases>
 		<typeAlias type="kr.co.vo.UserVo" alias="UserVo"/>
 		<typeAlias type="kr.co.vo.SulVo" alias="SulVo"/>
+		<typeAlias type="kr.co.vo.SuggestVo" alias="SuggestVo"/>
 	</typeAliases>
 </configuration>

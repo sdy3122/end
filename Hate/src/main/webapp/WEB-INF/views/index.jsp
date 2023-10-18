@@ -30,11 +30,12 @@
 					<li class="current" id="titleLi"><a href="/">메인화면</a></li>
 					<li><a href="/boardPage">게시판</a>
 						<ul>
-							<li><a href="#">소주게시판</a></li>
-							<li><a href="#">맥주게시판</a></li>
-							<li><a href="#">와인게시판</a></li>
-							<li><a href="#">보드카게시판</a></li>
-							<li><a href="#">위스키게시판</a></li>
+							<li><a href="sojuBoardPage">소주게시판</a></li>
+							<li><a href="beerBoardPage">맥주게시판</a></li>
+							<li><a href="wineBoardPage">와인게시판</a></li>
+							<li><a href="vodkaBoardPage">보드카게시판</a></li>
+							<li><a href="whiskeyBoardPage">위스키게시판</a></li>
+							<li><a href="freeBoardPage">자유게시판</a></li>
 						</ul></li>
 
 					<c:choose>
@@ -71,6 +72,7 @@
 		</section>
 		<section id="banner" class="hideBanner">
 			<header>
+			<input type="hidden" id="sojuSub" name="sojuSub" value="소주">
 				<div id="choiceSul1" class="sul" onclick="sojuRandomFood();">소주</div>
 				<div id="choiceSul3" class="sul" onclick="vodkaRandomFood();">보드카</div>
 				<div id="choiceSul2" class="sul" onclick="beerRandomFood();">맥주</div>

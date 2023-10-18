@@ -198,4 +198,9 @@
 		limit #{pageStart},
 		#{perPageNum}
 	</select>
+	
+	<select id="selectDistinctSojuList">
+		select distinct menu from sul where sul = '소주'
+	</select>
+	
 </mapper>

@@ -226,7 +226,7 @@
 				<a href="">인기 게시글</a>
 			</h3>
 			<section id="sidebarBody">
-				<c:forEach items="${allBoardLike}" var="alLike" begin="0" end="4"
+				<c:forEach items="${allBoardLike}" var="alLike" begin="0" end="2"
 					varStatus="status">
 					<ul class="posts">
 						<li>

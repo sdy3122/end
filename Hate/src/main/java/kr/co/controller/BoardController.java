@@ -2,7 +2,6 @@ package kr.co.controller;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -14,16 +13,14 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.fasterxml.jackson.core.type.TypeReference;
-import com.fasterxml.jackson.databind.ObjectMapper;
-
+import kr.co.mappers.SuggestMapper;
 import kr.co.mappers.SulMapper;
 import kr.co.mappers.UserMapper;
 import kr.co.vo.Criteria;
 import kr.co.vo.PagingVo;
+import kr.co.vo.SuggestVo;
 import kr.co.vo.SulVo;
 import kr.co.vo.UserVo;
 
@@ -33,6 +30,8 @@ public class BoardController {
 	private SulMapper sulMapper;
 	@Autowired
 	private UserMapper userMapper;
+	@Autowired
+	private SuggestMapper sugMapper;
 	
 	@GetMapping("boardPage")
 	public ModelAndView boardPage(Model model, Criteria cri, PagingVo pagingVo) throws Exception {
@@ -168,7 +167,20 @@ public class BoardController {
 		boolean sF = sulMapper.insertBoard(sulvo);
 		System.out.println(sF);
 		
-		return "redirect:/boardPage";
+		if (choiceSulType.equals("소주")) {
+			return "redirect:/sojuBoardPage";
+		} else if (choiceSulType.equals("맥주")) {
+			return "redirect:/beerBoardPage";
+		} else if (choiceSulType.equals("와인")) {
+			return "redirect:/wineBoardPage";
+		} else if (choiceSulType.equals("보드카")) {
+			return "redirect:/vodkaBoardPage";
+		} else if (choiceSulType.equals("위스키")) {
+			return "redirect:/whiskeyBoardPage";
+		} else {
+			return "redirect:/freeBoardPage";
+		}
+		
 	}
 	
 	@RequestMapping(value = "/changeBoard")
@@ -349,6 +361,47 @@ public class BoardController {
 		for (int i = 0; i < list.size(); i++) {
 			list.get(i).getMenu();
 		}
+		return mav;
+	}
+	
+	@RequestMapping(value = "/suggestPage")
+	public String suggestPage() {
+		System.out.println("건의하러 가기");
+		return "suggestPage";
+	}
+	
+	@GetMapping(value = "/insertSuggest")
+	public String insertSuggest(HttpSession session, UserVo vo,
+			SuggestVo sugvo, @RequestParam String choiceSulType, @RequestParam String title,
+			@RequestParam String content) {
+		System.out.println("건의하러 옴");
+		vo = (UserVo) session.getAttribute("sessionVo");
+		
+		sugvo.setWriter(vo.getUserName());
+		sugvo.setRegistNumber(vo.getRegistNumber());
+		sugvo.setTitle(title);
+		sugvo.setContent(content);
+		
+		boolean sF = sugMapper.insertSuggest(sugvo);
+		System.out.println(sF);
+		
+		return "redirect:/boardPage";
+	}
+	
+	@GetMapping("suggestBoardPage")
+	public ModelAndView suggestBoardPage(Model model, Criteria cri, PagingVo pagingVo) throws Exception {
+		ModelAndView mav = new ModelAndView("/suggestBoardPage");
+		ArrayList<SuggestVo> alLike = sugMapper.selectSuggestLikeBtnDesc();
+		model.addAttribute("allBoardLike",alLike);
+		int total = sugMapper.countSuggest();
+		pagingVo.setCri(cri);
+		pagingVo.setTotalCount(total);
+		System.out.println("등록된 게시글 수 = " + total);
+		
+		List<SuggestVo> list = sugMapper.selectSuggestLimit(cri);
+		mav.addObject("list", list);
+		mav.addObject("pagingVo", pagingVo);
+		
 		return mav;
 	}
 }

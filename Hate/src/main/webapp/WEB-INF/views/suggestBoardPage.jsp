@@ -7,7 +7,7 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-<title>통합 게시판</title>
+<title>고객센터</title>
 <meta charset="utf-8" />
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, user-scalable=no" />
@@ -32,7 +32,6 @@
 					<li><a href="vodkaBoardPage">보드카</a></li>
 					<li><a href="whiskeyBoardPage">위스키</a></li>
 					<li><a href="freeBoardPage">자유</a></li>
-					<li><a href="suggestBoardPage">고객센터</a></li>
 					<c:if test="${not empty check}">
 						<li id="showBoardUserName"><a href="/myInfoPage">${sessionScope.sessionVo.userName}님</a>
 					</c:if>
@@ -99,7 +98,6 @@
 				</c:otherwise>
 			</c:choose>
 
-
 			<!-- Actions -->
 			<section>
 
@@ -137,7 +135,7 @@
 				</ul>
 				<c:forEach items="${list}" var="alReg" varStatus="status">
 					<ul>
-						<li id="boardSul">${alReg.sul}</li>
+						<li id="boardSul">건의</li>
 						<li id="boardTitle"><a
 							href="singleBoardPage${pagingVo.makeQueryPage(alReg.bno, pagingVo.cri.page) }">${alReg.title}</a></li>
 						<c:choose>
@@ -180,8 +178,8 @@
 					<c:forEach begin="${pagingVo.startPage }"
 						end="${pagingVo.endPage }" var="pageNum">
 						<li><a
-							href='<c:url value="/boardPage${pagingVo.makeQueryPage(pageNum) }"/>'
-							style="color: #d1ffee">${pageNum }</a></li>
+							href='<c:url value="/boardPage${pagingVo.makeQueryPage(pageNum) }"/>'>${pageNum }</a>
+						</li>
 					</c:forEach>
 					<c:if test="${pagingVo.next && pagingVo.endPage >0 }">
 						<li><a
@@ -191,7 +189,6 @@
 				</ul>
 
 			</article>
-
 
 			<c:choose>
 				<c:when test="${not empty check}">
@@ -214,7 +211,6 @@
 				</c:otherwise>
 			</c:choose>
 
-
 		</div>
 
 		<!-- Sidebar -->
@@ -222,12 +218,12 @@
 			<!-- Intro -->
 			<section id="intro">
 				<header>
-					<h2>통합 커뮤니티</h2>
+					<h2>고객센터</h2>
 				</header>
 			</section>
 			<!-- Posts List -->
 			<h3>
-				<a href="">인기 게시글</a>
+				<a href="">인기 민원</a>
 			</h3>
 			<section id="sidebarBody">
 				<c:forEach items="${allBoardLike}" var="alLike" begin="0" end="2"
@@ -237,6 +233,7 @@
 							<article>
 								<header>
 									<h3>
+
 										<a id="overFlowH3"
 											href="singleBoardPage${pagingVo.makeQueryPage(alLike.bno, pagingVo.cri.page) }">${alLike.title}</a>
 									</h3>
@@ -257,7 +254,7 @@
 				<h2>건의하기</h2>
 				<p>건의사항, 오류발견시 신고좀</p>
 				<ul class="actions">
-					<li><a href="suggestPage" class="button">ㄱㄱ</a></li>
+					<li><a href="#" class="button">ㄱㄱ</a></li>
 				</ul>
 			</section>
 
