@@ -37,7 +37,7 @@
 		<property name="driverClassName"
 			value="com.mysql.cj.jdbc.Driver" />
 		<property name="jdbcUrl"
-			value="jdbc:mysql://localhost:3306/teamproject_db?characterEncoding=UTF-8&amp;" />
+			value="jdbc:mysql://localhost:3306/teamproject_db?" />
 		<property name="username" value="root" />
 		<property name="password" value="0000" />
 	</bean>
