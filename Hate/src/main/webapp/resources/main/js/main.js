@@ -10,7 +10,7 @@ function HSBanner() {
 $('#IdDupCheck').click(function() {
 	let userId = $('#inputUserId').val();
 	if (userId.trim().length == 0) {
-		alert('뭐라도 입력해라');
+		alert('아이디를 입력해주세요');
 	} else {
 		console.log(userId);
 		$.ajax({
@@ -26,14 +26,14 @@ $('#IdDupCheck').click(function() {
 					$('#IdDupWarning').css("display", "none");
 					$('#IdDupWarning').css("display", "block");
 					$('label[for="IdLabelWarning"]').css('color', '#787878');
-					$('label[for="IdLabelWarning"]').text('아이디 사용가능!');
+					$('label[for="IdLabelWarning"]').text('아이디 사용가능');
 					$('#DupCheck').attr('value','Check');
 					$('#inputUserId').attr('readonly', true);
 				} else {
 					$('#IdDupWarning').css("display", "none");
 					$('#IdDupWarning').css("display", "block");
 					$('label[for="IdLabelWarning"]').css('color', 'rgb(255 0 0)');
-					$('label[for="IdLabelWarning"]').text('아이디 중복 다시입력');
+					$('label[for="IdLabelWarning"]').text('아이디 중복');
 					$('#DupCheck').attr('value','UnCheck');
 					$('#inputUserId').val('');
 				}
@@ -68,12 +68,12 @@ function checkPw() {
 			$('#PwDupWarning').css("display", "none");
 			$('#PwDupWarning').css("display", "block");
 			$('label[for="PwLabelWarning"]').css('color', '#787878');
-			$('label[for="PwLabelWarning"]').text('비밀번호일치!');
+			$('label[for="PwLabelWarning"]').text('비밀번호일치');
 		} else {
 			$('#PwDupWarning').css("display", "none");
 			$('#PwDupWarning').css("display", "block");
 			$('label[for="PwLabelWarning"]').css('color', 'rgb(255 0 0)');
-			$('label[for="PwLabelWarning"]').text('비밀번호 불일치 다시입력');
+			$('label[for="PwLabelWarning"]').text('비밀번호 불일치');
 			document.getElementById('checkPW').value = '';
 		}
 	}
@@ -94,12 +94,12 @@ function checkNewPw() {
 			$('#NewPwDupWarning').css("display", "none");
 			$('#NewPwDupWarning').css("display", "block");
 			$('label[for="NewPwLabelWarning"]').css('color', '#787878');
-			$('label[for="NewPwLabelWarning"]').text('비밀번호일치!');
+			$('label[for="NewPwLabelWarning"]').text('비밀번호일치');
 		} else {
 			$('#NewPwDupWarning').css("display", "none");
 			$('#NewPwDupWarning').css("display", "block");
 			$('label[for="NewPwLabelWarning"]').css('color', 'rgb(255 0 0)');
-			$('label[for="NewPwLabelWarning"]').text('비밀번호 불일치 다시입력');
+			$('label[for="NewPwLabelWarning"]').text('비밀번호 불일치');
 			document.getElementById('newCheckPw').value = '';
 		}
 	}
@@ -207,7 +207,7 @@ function formCheck(obj) {
 		$('#RnDupWarning').css("display", "none");
 		$('#RnDupWarning').css("display", "block");
 		$('label[for="RnLabelWarning"]').css('color', 'rgb(255 0 0)');
-		$('label[for="RnLabelWarning"]').text('주민등록번호 앞자리는 숫자만 입력');
+		$('label[for="RnLabelWarning"]').text('숫자만 입력');
 		obj.rn1.value = "";
 		obj.rn1.focus();
 		return false;
@@ -225,7 +225,7 @@ function formCheck(obj) {
 		$('#RnDupWarning').css("display", "none");
 		$('#RnDupWarning').css("display", "block");
 		$('label[for="RnLabelWarning"]').css('color', 'rgb(255 0 0)');
-		$('label[for="RnLabelWarning"]').text('주민번호 뒷자리는 숫자만 입력');
+		$('label[for="RnLabelWarning"]').text('숫자만 입력');
 		obj.rn2.value = "";
 		obj.rn2.focus();
 		return false;
@@ -248,7 +248,7 @@ function formCheck(obj) {
 		$('#RnDupWarning').css("display", "none");
 		$('#RnDupWarning').css("display", "block");
 		$('label[for="RnLabelWarning"]').css('color', 'rgb(255 0 0)');
-		$('label[for="RnLabelWarning"]').text('주민등록 번호가 올바르지 않습니다');
+		$('label[for="RnLabelWarning"]').text('주민등록번호가 올바르지 않습니다');
 		obj.rn2.value = "";
 		obj.rn2.focus();
 		return false;
@@ -272,7 +272,7 @@ function formCheckFindId(obj) {
 		$('#SRnDupWarningId').css("display", "none");
 		$('#SRnDupWarningId').css("display", "block");
 		$('label[for="SRnLabelWarningId"]').css('color', 'rgb(255 0 0)');
-		$('label[for="SRnLabelWarningId"]').text('주민등록번호 앞자리는 숫자만 입력');
+		$('label[for="SRnLabelWarningId"]').text('숫자만 입력');
 		obj.rn1.value = "";
 		obj.rn1.focus();
 		return false;
@@ -290,7 +290,7 @@ function formCheckFindId(obj) {
 		$('#SRnDupWarningId').css("display", "none");
 		$('#SRnDupWarningId').css("display", "block");
 		$('label[for="SRnLabelWarningId"]').css('color', 'rgb(255 0 0)');
-		$('label[for="SRnLabelWarningId"]').text('주민번호 뒷자리는 숫자만 입력');
+		$('label[for="SRnLabelWarningId"]').text('숫자만 입력');
 		obj.rn2.value = "";
 		obj.rn2.focus();
 		return false;
@@ -314,7 +314,7 @@ function formCheckFindPw(obj) {
 		$('#SRnDupWarningPw').css("display", "none");
 		$('#SRnDupWarningPw').css("display", "block");
 		$('label[for="SRnLabelWarningPw"]').css('color', 'rgb(255 0 0)');
-		$('label[for="SRnLabelWarningPw"]').text('주민등록번호 앞자리는 숫자만 입력');
+		$('label[for="SRnLabelWarningPw"]').text('숫자만 입력');
 		obj.rn1.value = "";
 		obj.rn1.focus();
 		return false;
@@ -332,7 +332,7 @@ function formCheckFindPw(obj) {
 		$('#SRnDupWarningPw').css("display", "none");
 		$('#SRnDupWarningPw').css("display", "block");
 		$('label[for="SRnLabelWarningPw"]').css('color', 'rgb(255 0 0)');
-		$('label[for="SRnLabelWarningPw"]').text('주민번호 뒷자리는 숫자만 입력');
+		$('label[for="SRnLabelWarningPw"]').text('숫자만 입력');
 		obj.rn2.value = "";
 		obj.rn2.focus();
 		return false;
@@ -358,7 +358,7 @@ function checkRn(){
 				$('#RnDupWarning').css("display", "none");
 				$('#RnDupWarning').css("display", "block");
 				$('label[for="RnLabelWarning"]').css('color', 'rgb(255 0 0)');
-				$('label[for="RnLabelWarning"]').text('해당주민등록번호로 회원가입된 아이디있음');
+				$('label[for="RnLabelWarning"]').text('해당주민등록번호로 회원가입된 아이디있습니다');
 			}
 		},
 		error : function() {
